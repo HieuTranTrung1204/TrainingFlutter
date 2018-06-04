@@ -39,19 +39,25 @@ class screenStartState extends State<screenStartStateful> {
                 ),
 
                 new Container(
-                  margin : new EdgeInsets.only(right: 20.0,top: 30.0),
+                  margin : new EdgeInsets.only(left: 20.0, right: 20.0),
+                  decoration: const BoxDecoration(
+                    border: const Border(
+                      top: const BorderSide(width: 1.0, color: const Color(0xFFFFFFFFFF)),
+                      left: const BorderSide(width: 1.0, color: const Color(0xFFFFFFFFFF)),
+                      right: const BorderSide(width: 1.0, color: const Color(0xFFFFFFFFFF)),
+                      bottom: const BorderSide(width: 1.0, color: const Color(0xFFFFFFFFFF)),
+                    ),
+                  ),
                   child : new Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      new Padding(padding: new EdgeInsets.all(10.0)),
                       new Expanded(
                         child: new RaisedButton(
-                          color: Colors.white30,
+                          color: Colors.black26,
                           textColor: Colors.white,
                           child:  new Text("Đăng nhập"),
-                          onPressed: (){},
+                          onPressed: () => {},
                           padding : new EdgeInsets.all(8.0),
-
                         ),
                       ),
                     ],
@@ -60,22 +66,27 @@ class screenStartState extends State<screenStartStateful> {
                 new Divider(color: Colors.white,  height: 10.0, )
                 ,
                 new Container(
-                  margin : new EdgeInsets.only(right: 20.0),
+                  margin : new EdgeInsets.only(left: 20.0, right: 20.0),
+                  decoration: const BoxDecoration(
+                    border: const Border(
+                      top: const BorderSide(width: 1.0, color: const Color(0xFFFFFFFFFF)),
+                      left: const BorderSide(width: 1.0, color: const Color(0xFFFFFFFFFF)),
+                      right: const BorderSide(width: 1.0, color: const Color(0xFFFFFFFFFF)),
+                      bottom: const BorderSide(width: 1.0, color: const Color(0xFFFFFFFFFF)),
+                    ),
+                  ),
                   child : new Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      new Padding(padding: new EdgeInsets.all(10.0)),
                       new Expanded(
                         child: new RaisedButton(
-                          color: Colors.white30,
+                          color: Colors.black26,
                           textColor: Colors.white,
                           child:  new Text("Đăng ký"),
                           onPressed: () => {},
                           padding : new EdgeInsets.all(8.0),
                         ),
-
                       ),
-
                     ],
                   ),
                 ),

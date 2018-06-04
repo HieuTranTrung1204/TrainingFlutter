@@ -22,12 +22,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: new Text("Hello world",),
-      ),
-      body: new Text("Body",style: new TextStyle(fontSize: 30.0),) // This trailing comma makes auto-formatting nicer for build methods.
+        appBar: new AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: new Text("Hello world",),
+        ),
+        body: new Text("Body",style: new TextStyle(fontSize: 30.0),) // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

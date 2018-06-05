@@ -25,30 +25,62 @@ class screenDashboardState extends State<screenDashboardStatefull> {
     return new Scaffold(
         body: new Container(
             decoration: new BoxDecoration(color: Colors.black12),
-
             child: new ListView(
               children: <Widget>[
-                new Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    new Container(
-                      margin : new EdgeInsets.only(top: 10.0),
-                      width: 100.0,
-                      height: 100.0,
-                      decoration: new BoxDecoration(
-                        color: const Color(0xff7c94b6),
-                        image: new DecorationImage(
-                          image: new ExactAssetImage('images/taza.png'),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
-                        border: new Border.all(
-                          color: Colors.red,
-                          width: 1.0,
-                        ),
+                new Card(
+                  margin: new EdgeInsets.only(top: 10.0,left: 10.0,right: 10.0),
+                  child: Column(
+                    children: <Widget>[
+                      new Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Container(
+                            margin : new EdgeInsets.only(top: 15.0),
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: new BoxDecoration(
+                              color: const Color(0xff7c94b6),
+                              image: new DecorationImage(
+                                image: new ExactAssetImage('images/taza.png'),
+                                fit: BoxFit.cover,
+                              ),
+                              borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
+                              border: new Border.all(
+                                color: Colors.black,
+                                width: 2.0,
+                              ),
+                            ),
+                          ),
+                          new Text("Trần Thị A",style: new TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),)
+                        ],
                       ),
-                    ),
-                  ],
+                      new Container(
+                          margin: new EdgeInsets.all(10.0),
+                          child: new Stack(
+                            children: <Widget>[
+                              new Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[
+                                  new Column(
+                                    children: <Widget>[
+                                      new Text("Điểm tích luỹ",style: new TextStyle(fontSize: 15.0),),
+                                      new Text("123*",style: new TextStyle(fontSize: 30.0,fontWeight: FontWeight.bold),),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              new Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: <Widget>[
+                                  new Text("Lịch sử  ",style: new TextStyle(fontSize: 15.0,fontWeight: FontWeight.bold),),
+                                  new Icon(Icons.history),
+                                ],
+                              ),
+                            ],
+                          )
+                      ),
+                    ],
+                  ),
                 ),
                 new Card(
                   margin: new EdgeInsets.only(top: 10.0,left: 10.0,right: 10.0),
@@ -60,15 +92,24 @@ class screenDashboardState extends State<screenDashboardStatefull> {
                 ),
                 new Card(
                   margin: new EdgeInsets.only(top: 10.0,left: 10.0,right: 10.0),
-                  child: new ListTile(
-                    leading:  new Icon(Icons.notifications,color:Colors.blue,size: 20.0),
-                    title: new Text("9:30 Sáng thứ 3",
-                      style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-
+                  child: new Container(
+                    margin: new EdgeInsets.all(10.0),
+                    child: Column(
+                      children: <Widget>[
+                        new Text("09:30 Sáng thứ 3",style: new TextStyle(fontSize: 40.0),),
+                        new Container(
+                          margin: new EdgeInsets.only(top: 8.0),
+                          child: new Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              new Text("Lịch hẹn gần nhất",style: new TextStyle(fontSize: 14.0)),
+                              new Text("Ngày 05/06/2018",style: new TextStyle(fontSize: 18.0),)
+                            ],
+                          ),
+                        )
+                      ],
                     ),
-                    trailing: new Icon(Icons.navigate_next,color:Colors.black26,size: 20.0),
-                    subtitle: new Text("Lịch hẹn gần nhất - ngày 05/06/2018"),
-                  ),
+                  )
                 ),
                 new Card(
                     margin: new EdgeInsets.only(top: 10.0,left: 10.0,right: 10.0),
@@ -143,8 +184,94 @@ class screenDashboardState extends State<screenDashboardStatefull> {
                     )
                 ),
               ],
-            )
-        )
+            ),
+        ),
+        bottomNavigationBar: new Material(
+          // set the color of the bottom navigation bar
+          // set the tab bar as the child of bottom navigation bar
+          child: new Container(
+                decoration: new BoxDecoration(
+                  color: Colors.black12,
+                ),
+                height: 60.0,
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    new Container(
+                      margin: new EdgeInsets.only(top: 9.0),
+                      decoration: new BoxDecoration(
+                        color: Colors.transparent,
+                      ),
+                      width: 45.0,
+                      child : new Column(
+                        //mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Icon(Icons.calendar_today,size: 30.0, color: Colors.blueAccent,),
+                          new Text("Lịch khám", style: new TextStyle(fontSize: 8.0),),
+                        ],
+                      ),
+                    ),
+                    new Container(
+                      margin: new EdgeInsets.only(top: 9.0),
+                      decoration: new BoxDecoration(
+                        color: Colors.transparent,
+                      ),
+                      width: 45.0,
+                      child : new Column(
+                        //mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Icon(Icons.perm_identity,size: 30.0, color: Colors.blueAccent,),
+                          new Text("TT Cá nhân", style: new TextStyle(fontSize: 8.0),),
+                        ],
+                      ),
+                    ),
+                    new Container(
+                      margin: new EdgeInsets.only(top: 9.0),
+                      decoration: new BoxDecoration(
+                        color: Colors.transparent,
+                      ),
+                      width: 45.0,
+                      child : new Column(
+                        //mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Icon(Icons.card_giftcard,size: 30.0, color: Colors.blueAccent,),
+                          new Text("Quà tặng", style: new TextStyle(fontSize: 8.0),),
+                        ],
+                      ),
+                    ),
+                    new Container(
+                      margin: new EdgeInsets.only(top: 9.0),
+                      decoration: new BoxDecoration(
+                        color: Colors.transparent,
+                      ),
+                      width: 45.0,
+                      child : new Column(
+                        //mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Icon(Icons.menu,size: 30.0, color: Colors.blueAccent,),
+                          new Text("Thêm", style: new TextStyle(fontSize: 10.0),),
+                        ],
+                      ),
+                    ),
+                    new Container(
+                      margin: new EdgeInsets.only(top: 9.0),
+                      decoration: new BoxDecoration(
+                        color: Colors.transparent,
+                      ),
+                      width: 45.0,
+                      child : new Column(
+                        //mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Icon(Icons.settings,size: 30.0, color: Colors.blueAccent,),
+                          new Text("Cài đặt", style: new TextStyle(fontSize: 10.0),),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+        ),
     );
   }
 }

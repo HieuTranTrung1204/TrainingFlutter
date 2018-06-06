@@ -186,6 +186,11 @@ class screenDashboardState extends State<screenDashboardStatefull> {
               ],
             ),
         ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () { print("hieulog add ");},
+      ),
         bottomNavigationBar: new Material(
           // set the color of the bottom navigation bar
           // set the tab bar as the child of bottom navigation bar
@@ -231,13 +236,13 @@ class screenDashboardState extends State<screenDashboardStatefull> {
                         color: Colors.transparent,
                       ),
                       width: 45.0,
-                      child : new Column(
-                        //mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new Icon(Icons.card_giftcard,size: 30.0, color: Colors.blueAccent,),
-                          new Text("Quà tặng", style: new TextStyle(fontSize: 8.0),),
-                        ],
-                      ),
+//                      child : new Column(
+//                        //mainAxisAlignment: MainAxisAlignment.center,
+//                        children: <Widget>[
+//                          new Icon(Icons.card_giftcard,size: 30.0, color: Colors.blueAccent,),
+//                          new Text("Quà tặng", style: new TextStyle(fontSize: 8.0),),
+//                        ],
+//                      ),
                     ),
                     new Container(
                       margin: new EdgeInsets.only(top: 9.0),

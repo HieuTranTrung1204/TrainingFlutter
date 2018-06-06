@@ -188,12 +188,14 @@ class screenDashboardState extends State<screenDashboardStatefull> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+
+        child: const Icon(Icons.card_giftcard),
         onPressed: () { print("hieulog add ");},
       ),
       bottomNavigationBar: new Material(
         // set the color of the bottom navigation bar
         // set the tab bar as the child of bottom navigation bar
+
         child: new Container(
           decoration: new BoxDecoration(
             color: Colors.transparent,

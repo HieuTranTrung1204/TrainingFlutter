@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-void main() => runApp(new MyApp());
+import 'mehod_http.dart';
+void main() => runApp(new MyGetHttpData());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

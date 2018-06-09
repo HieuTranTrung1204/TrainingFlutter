@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'Puzuka demo firebase notification 2'),
+      home: new MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -41,13 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     _firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) {
-        print('Puzuka : on message $message');
+        print('on message $message');
       },
       onResume: (Map<String, dynamic> message) {
-        print('Puzuka : on resume $message');
+        print('on resume $message');
       },
       onLaunch: (Map<String, dynamic> message) {
-        print('Puzuka : on launch $message');
+        print('on launch $message');
       },
     );
     _firebaseMessaging.getToken().then((token){
@@ -68,7 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
             new Text(
               'You have pushed the button this many times:',
             ),
-
+            new Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.display1,
+            ),
           ],
         ),
       ),

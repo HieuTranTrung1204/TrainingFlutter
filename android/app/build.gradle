@@ -12,7 +12,6 @@ if (flutterRoot == null) {
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
@@ -55,3 +54,4 @@ dependencies {
     //compile 'com.google.firebase:firebase-messaging:15.0.0'
 }
 //apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'

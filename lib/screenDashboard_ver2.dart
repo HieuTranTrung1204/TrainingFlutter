@@ -24,10 +24,11 @@ class screenDashboardState extends State<screenDashboardStatefull> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
-        margin: new EdgeInsets.only(top:23.0),
+        margin: new EdgeInsets.only(top:25.0 ),
         child: new Stack(
           children: <Widget>[
             new ListView(
+              padding: const EdgeInsets.only(bottom: 100.0),
               children: <Widget>[
                 _cardInfoUser(),
                 _cardMembershipProgram(),
@@ -239,7 +240,7 @@ Widget _bottomNavigation(BuildContext context)
 
               width: MediaQuery.of(context).size.width,
               child: new Container(
-                margin: new EdgeInsets.only(bottom: 10.0),
+                margin: new EdgeInsets.only(bottom: 20.0),
                 child: new Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[

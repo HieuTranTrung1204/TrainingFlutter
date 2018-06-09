@@ -23,136 +23,23 @@ class screenDashboardState extends State<screenDashboardStatefull> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Stack(
-        children: <Widget>[
-          new ListView(
-            children: <Widget>[
-              // Card info user
-              _cardInfoUser(),
-              // Card info menber
-              // Card schedule
-              _cardMembershipProgram(),
-              _cardScheduleMember(),
-              _cardNews(),
-              _cardSale(),
-
-
-
-            ],
-          ),
-          new Positioned(
-              bottom: 0.0,
-              child:new Container(
-                //margin: new EdgeInsets.only(bottom: 10.0),
-                   color: const Color(0xFFEEEEEE),
-
-                  width: MediaQuery.of(context).size.width,
-                  child: new Container(
-                    margin: new EdgeInsets.only(bottom: 10.0),
-                    child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        new Column(
-                          //mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            new IconButton(
-                                icon: new Icon(
-                                  Icons.calendar_today,
-                                  size: 35.0,
-                                  color: Colors.grey,
-                                ),
-                                onPressed: null
-                            ),
-                            new Text("Lịch khám", style: new TextStyle(fontSize: 8.0),),
-                          ],
-                        ),
-                        new Column(
-                          //mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            new IconButton(
-                                icon: Icon(
-                                  Icons.perm_identity,
-                                  size: 35.0,
-                                  color: Colors.grey,
-                                ),
-                                onPressed: null
-                            ),
-                            new Text("TT Cá nhân", style: new TextStyle(fontSize: 8.0),),
-                          ],
-                        ),
-                        new Column(
-                          //mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            new IconButton(
-                                icon: Icon(
-                                  Icons.card_giftcard,
-                                  size: 40.0,
-                                  color: Colors.transparent,
-                                ),
-                                onPressed: null
-                            ),
-                          ],
-                        ),
-                        new Column(
-                          //mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            new IconButton(
-                                icon: Icon(
-                                  Icons.menu,
-                                  size: 35.0,
-                                  color: Colors.grey,
-                                ),
-                                onPressed: null
-                            ),
-                            new Text("Thêm", style: new TextStyle(fontSize: 8.0),),
-                          ],
-                        ),
-                        new Column(
-                          //mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            new IconButton(
-                                icon: Icon(
-                                  Icons.settings,
-                                  size: 35.0,
-                                  color: Colors.grey,
-                                ),
-                                onPressed: null
-                            ),
-                            new Text("Cài đặt", style: new TextStyle(fontSize: 8.0),),
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
-              )
-          ),
-          new Positioned(
-              bottom: 20.0,
-              left: MediaQuery.of(context).size.width/2-30,
-              child:new Container(
-                margin : new EdgeInsets.only(top: 15.0),
-                width: 70.0,
-                height: 70.0,
-                decoration: new BoxDecoration(
-                  color: const Color(0xFFEEEEEE),
-                  borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
-                  border: new Border.all(
-                    color: const Color(0xFFEEEEEE),
-                    width: 5.0,
-                  ),
-                ),
-                child: new IconButton(
-                  //alignment: new Alignment(20.0, 20.0),
-                    icon: Icon(
-                      Icons.card_giftcard,
-                      size: 45.0,
-                    ),
-                    onPressed: null
-                ),
-              )
-          )
-        ],
-      ),
+      body: new Container(
+        margin: new EdgeInsets.only(top:23.0),
+        child: new Stack(
+          children: <Widget>[
+            new ListView(
+              children: <Widget>[
+                _cardInfoUser(),
+                _cardMembershipProgram(),
+                _cardScheduleMember(),
+                _cardNews(),
+                _cardSale(),
+              ],
+            ),
+            _bottomNavigation(context)
+          ],
+        ),
+      )
     );
   }
 }
@@ -161,14 +48,14 @@ class screenDashboardState extends State<screenDashboardStatefull> {
 Widget _cardInfoUser()
 {
   return new Card(
-    margin: new EdgeInsets.only(top: 10.0,left: 10.0,right: 10.0),
+    margin: new EdgeInsets.only(top: 0.0,left: 10.0,right: 10.0),
     child: Column(
       children: <Widget>[
         new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Container(
-              margin : new EdgeInsets.only(top: 15.0),
+              margin : new EdgeInsets.only(top: 10.0),
               width: 100.0,
               height: 100.0,
               decoration: new BoxDecoration(
@@ -337,5 +224,124 @@ Widget _cardSale()
           ),
         ],
       )
+  );
+}
+
+Widget _bottomNavigation(BuildContext context)
+{
+  return new Stack(
+    children: <Widget>[
+      new Positioned(
+          bottom: 0.0,
+          child:new Container(
+            //margin: new EdgeInsets.only(bottom: 10.0),
+              color: const Color(0xFFEEEEEE),
+
+              width: MediaQuery.of(context).size.width,
+              child: new Container(
+                margin: new EdgeInsets.only(bottom: 10.0),
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    new Column(
+                      //mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new IconButton(
+                            icon: new Icon(
+                              Icons.calendar_today,
+                              size: 35.0,
+                              color: Colors.grey,
+                            ),
+                            onPressed: null
+                        ),
+                        new Text("Lịch khám", style: new TextStyle(fontSize: 8.0),),
+                      ],
+                    ),
+                    new Column(
+                      //mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new IconButton(
+                            icon: Icon(
+                              Icons.perm_identity,
+                              size: 35.0,
+                              color: Colors.grey,
+                            ),
+                            onPressed: null
+                        ),
+                        new Text("TT Cá nhân", style: new TextStyle(fontSize: 8.0),),
+                      ],
+                    ),
+                    new Column(
+                      //mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new IconButton(
+                            icon: Icon(
+                              Icons.card_giftcard,
+                              size: 40.0,
+                              color: Colors.transparent,
+                            ),
+                            onPressed: null
+                        ),
+                      ],
+                    ),
+                    new Column(
+                      //mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new IconButton(
+                            icon: Icon(
+                              Icons.menu,
+                              size: 35.0,
+                              color: Colors.grey,
+                            ),
+                            onPressed: null
+                        ),
+                        new Text("Thêm", style: new TextStyle(fontSize: 8.0),),
+                      ],
+                    ),
+                    new Column(
+                      //mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new IconButton(
+                            icon: Icon(
+                              Icons.settings,
+                              size: 35.0,
+                              color: Colors.grey,
+                            ),
+                            onPressed: null
+                        ),
+                        new Text("Cài đặt", style: new TextStyle(fontSize: 8.0),),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+          )
+      ),
+      new Positioned(
+          bottom: 20.0,
+          left: MediaQuery.of(context).size.width/2-30,
+          child:new Container(
+            margin : new EdgeInsets.only(top: 15.0),
+            width: 70.0,
+            height: 70.0,
+            decoration: new BoxDecoration(
+              color: const Color(0xFFEEEEEE),
+              borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
+              border: new Border.all(
+                color: const Color(0xFFEEEEEE),
+                width: 5.0,
+              ),
+            ),
+            child: new IconButton(
+              //alignment: new Alignment(20.0, 20.0),
+                icon: Icon(
+                  Icons.card_giftcard,
+                  size: 45.0,
+                ),
+                onPressed: null
+            ),
+          )
+      )
+    ],
   );
 }

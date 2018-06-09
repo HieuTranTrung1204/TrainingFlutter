@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1085858192736",
+    "firebase_url": "https://project-flutter-notifications.firebaseio.com",
+    "project_id": "project-flutter-notifications",
+    "storage_bucket": "project-flutter-notifications.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085858192736:android:f36355dc9795b257",
+        "android_client_info": {
+          "package_name": "com.example.trainingflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085858192736-7hl546suhph9j44106qcrp5uv343l24u.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1085858192736-7hl546suhph9j44106qcrp5uv343l24u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfol-hNP-oB8AOw4nFousAvFFbKdyv7SA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

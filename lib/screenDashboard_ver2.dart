@@ -24,7 +24,7 @@ class screenDashboardState extends State<screenDashboardStatefull> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
-        margin: new EdgeInsets.only(top:25.0 ),
+        margin: new EdgeInsets.only(top:40.0 ),
         child: new Stack(
           children: <Widget>[
             new ListView(

@@ -5,7 +5,7 @@ import 'tabs/second.dart';
 import 'tabs/third.dart';
 import 'tabs/four.dart';
 import 'tabs/five.dart';
-
+import 'tabs/temp.dart';
 class ScreenTutorials extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -41,11 +41,36 @@ class DotsIndicator extends AnimatedWidget {
   /// Defaults to `Colors.white`.
   final Color color;
 
+// The base size of the dots
+  static const double _kDotSize = 8.0;
 
+  // The increase in the size of the selected dot
+  static const double _kMaxZoom = 2.0;
 
+  // The distance between the center of each dot
+  static const double _kDotSpacing = 25.0;
+  Text textButton = new Text('NEXT', style: new TextStyle(fontSize: 12.0));
 
+  void buttonNext(BuildContext context)
+  {
+      print("next page: $currentIndex");
+      if(currentIndex <4)
+      {
+        currentIndex = currentIndex+1;
+        onPageSelected(currentIndex);
+        if(currentIndex==4)
+          {
+            textButton = new Text('SKIP', style: new TextStyle(fontSize: 12.0));
+          }
+      }else{
+        Navigator.of(context).push(new PageRouteBuilder(
+          pageBuilder :  (_, __, ___)=> Temp()));
+      }
+
+  }
   Widget build(BuildContext context) {
-    //print("============================Build control: $currentIndex");
+    print("============================Build control: $currentIndex");
+    currentIndex = currentIndex%5;
     return new Stack(
       children: <Widget>[
         new Positioned(
@@ -59,74 +84,65 @@ class DotsIndicator extends AnimatedWidget {
                   child: new Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      new Column(
-                        //mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new IconButton(
-                              icon: new Icon(
-                                Icons.calendar_today,
-                                size: 35.0,
-                                color: currentIndex == 0 ? Colors.yellow:Colors.grey,
-                              ),
-                              onPressed: () => onPageSelected(0)
-                          ),
-                          new Text("Lịch khám", style: new TextStyle(fontSize: 8.0),),
-                        ],
+                      new RaisedButton(
+                          child: textButton,
+                          onPressed: ()=>buttonNext(context)
                       ),
-                      new Column(
+                      new Material(
+                        color: Colors.black,
+                        type: MaterialType.circle,
+                        child: new Container(
+                          width: _kDotSize * (currentIndex == 0 ? 2.0:1.0),
+                          height: _kDotSize * (currentIndex == 0 ? 2.0:1.0),
+                        ),
+                      ),
+                      new Material(
+                        color: Colors.black,
+                        type: MaterialType.circle,
+                        child: new Container(
+                          width: _kDotSize * (currentIndex == 1 ? 2.0:1.0),
+                          height: _kDotSize * (currentIndex == 1 ? 2.0:1.0),
+                        ),
+                      ),
+                      new Material(
+                        color: Colors.black,
+                        type: MaterialType.circle,
+                        child: new Container(
+                          width: _kDotSize * (currentIndex == 2 ? 2.0:1.0),
+                          height: _kDotSize * (currentIndex == 2 ? 2.0:1.0),
+                        ),
+                      ),
+                      new Material(
+                        color: Colors.black,
+                        type: MaterialType.circle,
+                        child: new Container(
+                          width: _kDotSize * (currentIndex == 3 ? 2.0:1.0),
+                          height: _kDotSize * (currentIndex == 3 ? 2.0:1.0),
+                        ),
+                      ),
+                      new Material(
+                        color: Colors.black,
+                        type: MaterialType.circle,
+                        child: new Container(
+                          width: _kDotSize * (currentIndex == 4 ? 2.0:1.0),
+                          height: _kDotSize * (currentIndex == 4 ? 2.0:1.0),
+                        ),
+                      ),
+                      new Row(
                         //mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
+                          new Text("SKIP"),
                           new IconButton(
                               icon: Icon(
-                                Icons.perm_identity,
+                                Icons.navigate_next
+                                ,
                                 size: 35.0,
-                                color: currentIndex == 1 ? Colors.yellow:Colors.grey,
+                                color: Colors.lightGreen,
                               ),
-                              onPressed: () => onPageSelected(1)
+                              onPressed: () => Navigator.of(context).push(new PageRouteBuilder(
+                                  pageBuilder :  (_, __, ___)=> Temp()))
                           ),
-                          new Text("TT Cá nhân", style: new TextStyle(fontSize: 8.0),),
-                        ],
-                      ),
-                      new Column(
-                        //mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new IconButton(
-                            icon: Icon(
-                              Icons.perm_identity,
-                              size: 35.0,
-                              color: Colors.transparent,
-                            ),
-                            //onPressed: () => onPageSelected(1)
-                          ),
-                          //new Text("TT Cá nhân", style: new TextStyle(fontSize: 8.0),),
-                        ],
-                      ),
-                      new Column(
-                        //mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new IconButton(
-                              icon: Icon(
-                                Icons.menu,
-                                size: 35.0,
-                                color: currentIndex == 3 ? Colors.yellow:Colors.grey,
-                              ),
-                              onPressed: () => onPageSelected(3)
-                          ),
-                          new Text("Thêm", style: new TextStyle(fontSize: 8.0),),
-                        ],
-                      ),
-                      new Column(
-                        //mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new IconButton(
-                              icon: Icon(
-                                Icons.settings,
-                                size: 35.0,
-                                color: currentIndex == 4 ? Colors.yellow:Colors.grey,
-                              ),
-                              onPressed: () => onPageSelected(4)
-                          ),
-                          new Text("Cài đặt", style: new TextStyle(fontSize: 8.0),),
+                          //new Text("Cài đặt", style: new TextStyle(fontSize: 8.0),),
                         ],
                       ),
                     ],
@@ -134,38 +150,6 @@ class DotsIndicator extends AnimatedWidget {
                 )
             )
         ),
-        new Positioned(
-            bottom: 5.0,
-            left: MediaQuery.of(context).size.width/2-30,
-            child:  new Row(
-              mainAxisAlignment:  MainAxisAlignment.center,
-              children: <Widget>[
-                new Container(
-                  margin : new EdgeInsets.only(top: 0.0,bottom: 20.0),
-                  width: 70.0,
-                  height: 70.0,
-                  decoration: new BoxDecoration(
-                    //color: const Color(0xFFEEEEEE),
-                    color: Colors.red,
-                    borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
-                    border: new Border.all(
-                      color: const Color(0xFFEEEEEE),
-                      width: 5.0,
-                    ),
-                  ),
-                  child: new IconButton(
-                    //alignment: new Alignment(20.0, 20.0),
-                      icon: Icon(
-                        Icons.card_giftcard,
-                        size: 45.0,
-                        color: currentIndex == 2 ? Colors.yellow:Colors.grey,
-                      ),
-                      onPressed:() => onPageSelected(2)
-                  ),
-                ),
-              ],
-            )
-        )
       ],
     );
   }
@@ -182,7 +166,7 @@ class MyHomePageState extends State<MyHomePage> {
 
   int _currentIndex = 0;
 
-  static const _kDuration = const Duration(milliseconds: 100);
+  static const _kDuration = const Duration(milliseconds: 500);
 
   static const _kCurve = Curves.ease;
 
@@ -234,6 +218,7 @@ class MyHomePageState extends State<MyHomePage> {
                 },
               ),
             ),
+
           ],
         ),
       ),

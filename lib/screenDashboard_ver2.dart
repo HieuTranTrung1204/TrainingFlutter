@@ -23,24 +23,24 @@ class screenDashboardState extends State<screenDashboardStatefull> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Container(
-        margin: new EdgeInsets.only(top:40.0 ),
-        child: new Stack(
-          children: <Widget>[
-            new ListView(
-              padding: const EdgeInsets.only(bottom: 100.0),
-              children: <Widget>[
-                _cardInfoUser(),
-                _cardMembershipProgram(),
-                _cardScheduleMember(),
-                _cardNews(),
-                _cardSale(),
-              ],
-            ),
-            _bottomNavigation(context)
-          ],
-        ),
-      )
+        body: new Container(
+          margin: new EdgeInsets.only(top:40.0 ),
+          child: new Stack(
+            children: <Widget>[
+              new ListView(
+                padding: const EdgeInsets.only(bottom: 100.0),
+                children: <Widget>[
+                  _cardInfoUser(),
+                  _cardMembershipProgram(),
+                  _cardScheduleMember(),
+                  _cardNews(),
+                  _cardSale(),
+                ],
+              ),
+              _bottomNavigation(context)
+            ],
+          ),
+        )
     );
   }
 }

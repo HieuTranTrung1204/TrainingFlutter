@@ -45,6 +45,7 @@ class DotsIndicator extends AnimatedWidget {
 
 
   Widget build(BuildContext context) {
+    //print("============================Build control: $currentIndex");
     return new Stack(
       children: <Widget>[
         new Positioned(
@@ -204,8 +205,11 @@ class MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             new PageView.builder(
               physics: new AlwaysScrollableScrollPhysics(),
+              //scrollDirection : null,
               controller: _controller,
               itemBuilder: (BuildContext context, int index) {
+                print("=========build page: " + (index % _pages.length).toString());
+                DotsIndicator.currentIndex = index % _pages.length;
                 return _pages[index % _pages.length];
               },
             ),

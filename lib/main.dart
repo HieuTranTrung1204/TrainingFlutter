@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-void main() => runApp(new MyApp());
+import 'bottomnavigation_pagecontrol.dart';
+void main() => runApp(new screenDashboard());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

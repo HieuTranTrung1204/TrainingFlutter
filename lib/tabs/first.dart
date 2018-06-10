@@ -13,7 +13,7 @@ class First extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Icon(
-              Icons.favorite,
+              Icons.calendar_today,
               size: 160.0,
               color: Colors.red,
             ),

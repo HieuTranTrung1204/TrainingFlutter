@@ -11,7 +11,7 @@ class Third extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Icon(
-              Icons.airport_shuttle,
+              Icons.card_giftcard,
               size: 160.0,
               color: Colors.blue,
             ),

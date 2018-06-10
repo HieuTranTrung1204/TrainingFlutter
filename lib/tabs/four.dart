@@ -11,7 +11,7 @@ class Four extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Icon(
-              Icons.card_giftcard,
+              Icons.menu,
               size: 160.0,
               color: Colors.pink,
             ),

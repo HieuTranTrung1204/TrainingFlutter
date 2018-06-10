@@ -11,7 +11,7 @@ class Five extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Icon(
-              Icons.ac_unit,
+              Icons.settings,
               size: 160.0,
               color: Colors.yellow,
             ),

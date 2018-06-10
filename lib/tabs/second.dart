@@ -11,7 +11,7 @@ class Second extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Icon(
-              Icons.adb,
+              Icons.perm_identity,
               size: 160.0,
               color: Colors.green,
             ),

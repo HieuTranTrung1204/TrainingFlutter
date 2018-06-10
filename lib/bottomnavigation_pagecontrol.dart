@@ -1,4 +1,4 @@
-import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'tabs/first.dart';
 import 'tabs/second.dart';
@@ -6,7 +6,7 @@ import 'tabs/third.dart';
 import 'tabs/four.dart';
 import 'tabs/five.dart';
 
-class screenDashboard extends StatelessWidget {
+class ScreenDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -35,19 +35,12 @@ class DotsIndicator extends AnimatedWidget {
   /// Called when a dot is tapped
   final ValueChanged<int> onPageSelected;
 
+  static int currentIndex = 0;
   /// The color of the dots.
   ///
   /// Defaults to `Colors.white`.
   final Color color;
 
-  // The base size of the dots
-  static const double _kDotSize = 8.0;
-
-  // The increase in the size of the selected dot
-  static const double _kMaxZoom = 2.0;
-
-  // The distance between the center of each dot
-  static const double _kDotSpacing = 25.0;
 
 
 
@@ -72,7 +65,7 @@ class DotsIndicator extends AnimatedWidget {
                               icon: new Icon(
                                 Icons.calendar_today,
                                 size: 35.0,
-                                color: Colors.grey,
+                                color: currentIndex == 0 ? Colors.yellow:Colors.grey,
                               ),
                               onPressed: () => onPageSelected(0)
                           ),
@@ -86,7 +79,7 @@ class DotsIndicator extends AnimatedWidget {
                               icon: Icon(
                                 Icons.perm_identity,
                                 size: 35.0,
-                                color: Colors.grey,
+                                color: currentIndex == 1 ? Colors.yellow:Colors.grey,
                               ),
                               onPressed: () => onPageSelected(1)
                           ),
@@ -102,9 +95,7 @@ class DotsIndicator extends AnimatedWidget {
                               size: 35.0,
                               color: Colors.transparent,
                             ),
-                            //onPressed: () => onPageSelected(1)
                           ),
-                          //new Text("TT Cá nhân", style: new TextStyle(fontSize: 8.0),),
                         ],
                       ),
                       new Column(
@@ -114,7 +105,7 @@ class DotsIndicator extends AnimatedWidget {
                               icon: Icon(
                                 Icons.menu,
                                 size: 35.0,
-                                color: Colors.grey,
+                                color: currentIndex == 3 ? Colors.yellow:Colors.grey,
                               ),
                               onPressed: () => onPageSelected(3)
                           ),
@@ -128,7 +119,7 @@ class DotsIndicator extends AnimatedWidget {
                               icon: Icon(
                                 Icons.settings,
                                 size: 35.0,
-                                color: Colors.grey,
+                                color: currentIndex == 4 ? Colors.yellow:Colors.grey,
                               ),
                               onPressed: () => onPageSelected(4)
                           ),
@@ -152,7 +143,7 @@ class DotsIndicator extends AnimatedWidget {
                   height: 70.0,
                   decoration: new BoxDecoration(
                     //color: const Color(0xFFEEEEEE),
-                    color: Colors.red,
+                    color: Colors.white,
                     borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
                     border: new Border.all(
                       color: const Color(0xFFEEEEEE),
@@ -164,6 +155,7 @@ class DotsIndicator extends AnimatedWidget {
                       icon: Icon(
                         Icons.card_giftcard,
                         size: 45.0,
+                        color: currentIndex == 2 ? Colors.yellow:Colors.grey,
                       ),
                       onPressed:() => onPageSelected(2)
                   ),
@@ -223,6 +215,7 @@ class MyHomePageState extends State<MyHomePage> {
                 itemCount: _pages.length,
                 onPageSelected: (int page) {
                   print("Data: $page");
+                  DotsIndicator.currentIndex = page;
                   _controller.animateToPage(
                     page,
                     duration: _kDuration,

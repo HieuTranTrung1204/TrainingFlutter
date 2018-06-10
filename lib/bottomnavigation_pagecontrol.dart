@@ -1,4 +1,4 @@
-
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'tabs/first.dart';
 import 'tabs/second.dart';
@@ -45,6 +45,7 @@ class DotsIndicator extends AnimatedWidget {
 
 
   Widget build(BuildContext context) {
+    //print("============================Build control: $currentIndex");
     return new Stack(
       children: <Widget>[
         new Positioned(
@@ -95,7 +96,9 @@ class DotsIndicator extends AnimatedWidget {
                               size: 35.0,
                               color: Colors.transparent,
                             ),
+                            //onPressed: () => onPageSelected(1)
                           ),
+                          //new Text("TT Cá nhân", style: new TextStyle(fontSize: 8.0),),
                         ],
                       ),
                       new Column(
@@ -143,7 +146,7 @@ class DotsIndicator extends AnimatedWidget {
                   height: 70.0,
                   decoration: new BoxDecoration(
                     //color: const Color(0xFFEEEEEE),
-                    color: Colors.white,
+                    color: Colors.red,
                     borderRadius: new BorderRadius.all(new Radius.circular(50.0)),
                     border: new Border.all(
                       color: const Color(0xFFEEEEEE),
@@ -177,7 +180,9 @@ class MyHomePageState extends State<MyHomePage> {
 
   final _controller = new PageController();
 
-  static const _kDuration = const Duration(milliseconds: 300);
+  int _currentIndex = 0;
+
+  static const _kDuration = const Duration(milliseconds: 100);
 
   static const _kCurve = Curves.ease;
 
@@ -199,11 +204,17 @@ class MyHomePageState extends State<MyHomePage> {
         child: new Stack(
           children: <Widget>[
             new PageView.builder(
-              physics: new AlwaysScrollableScrollPhysics(),
-              controller: _controller,
-              itemBuilder: (BuildContext context, int index) {
-                return _pages[index % _pages.length];
-              },
+                physics: new AlwaysScrollableScrollPhysics(),
+                //scrollDirection : null,
+                reverse : false,
+                controller: _controller,
+                itemBuilder: (BuildContext context, int index) {
+                  DotsIndicator.currentIndex = index % _pages.length;
+                  return _pages[index % _pages.length];
+                },
+                onPageChanged: (int page){
+                  DotsIndicator.currentIndex = page;
+                }
             ),
             new Positioned(
               bottom: 0.0,
@@ -214,7 +225,6 @@ class MyHomePageState extends State<MyHomePage> {
                 controller: _controller,
                 itemCount: _pages.length,
                 onPageSelected: (int page) {
-                  print("Data: $page");
                   DotsIndicator.currentIndex = page;
                   _controller.animateToPage(
                     page,

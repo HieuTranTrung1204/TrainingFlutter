@@ -182,7 +182,7 @@ class MyHomePageState extends State<MyHomePage> {
 
   int _currentIndex = 0;
 
-  static const _kDuration = const Duration(milliseconds: 300);
+  static const _kDuration = const Duration(milliseconds: 100);
 
   static const _kCurve = Curves.ease;
 
@@ -206,12 +206,15 @@ class MyHomePageState extends State<MyHomePage> {
             new PageView.builder(
               physics: new AlwaysScrollableScrollPhysics(),
               //scrollDirection : null,
+              reverse : false,
               controller: _controller,
               itemBuilder: (BuildContext context, int index) {
-                print("=========build page: " + (index % _pages.length).toString());
                 DotsIndicator.currentIndex = index % _pages.length;
                 return _pages[index % _pages.length];
               },
+              onPageChanged: (int page){
+                DotsIndicator.currentIndex = page;
+              }
             ),
             new Positioned(
               bottom: 0.0,
@@ -222,7 +225,6 @@ class MyHomePageState extends State<MyHomePage> {
                 controller: _controller,
                 itemCount: _pages.length,
                 onPageSelected: (int page) {
-                  print("Data: $page");
                   DotsIndicator.currentIndex = page;
                   _controller.animateToPage(
                     page,

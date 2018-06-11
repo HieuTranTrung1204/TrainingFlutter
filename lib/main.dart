@@ -28,15 +28,15 @@ class _MyAppState extends State<MyApp> {
   Uri staticMapUri;
 
   List<Marker> _markers = <Marker>[
-    new Marker("1", "Work", 45.523970, -122.663081, color: Colors.blue),
-    new Marker("2", "Nossa Familia Coffee", 45.528788, -122.684633),
+    new Marker("1", "Work", 10.8139738,106.6900107, color: Colors.blue),
+    new Marker("2", "Nossa Familia Coffee", 10.8139738,106.6900107),
   ];
 
   @override
   initState() {
     super.initState();
-    cameraPosition = new CameraPosition(Locations.portland, 2.0);
-    staticMapUri = staticMapProvider.getStaticUri(Locations.portland, 12,
+    cameraPosition = new CameraPosition(new Location(10.8139738,106.6900107), 0.0);
+    staticMapUri = staticMapProvider.getStaticUri(new Location(10.8139738,106.6900107), 12,
         width: 900, height: 400, mapType: StaticMapViewType.roadmap);
   }
 
@@ -101,7 +101,7 @@ class _MyAppState extends State<MyApp> {
             mapViewType: MapViewType.normal,
             showUserLocation: true,
             initialCameraPosition: new CameraPosition(
-                new Location(45.5259467, -122.687747), 15.0),
+                new Location(10.8139738,106.6900107), 15.0),
             title: "Recently Visited2",
 
         ),
@@ -111,7 +111,7 @@ class _MyAppState extends State<MyApp> {
 
     var sub = mapView.onMapReady.listen((_) {
       mapView.setMarkers(_markers);
-      mapView.addMarker(new Marker("3", "10 Barrel", 45.5259467, -122.687747,
+      mapView.addMarker(new Marker("3", "10 Barrel", 10.8139738,106.6900107,
           color: Colors.purple));
       mapView.zoomToFit(padding: 100);
 

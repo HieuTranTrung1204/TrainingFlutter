@@ -14,6 +14,7 @@ var API_KEY = "AIzaSyBkQhtYQS-9VamlmU3d8Oyn1jppXYP1oL0";
 void main() {
   if (Platform.isAndroid) {
     // Android-specific code
+    API_KEY = "AIzaSyC0Hfb-646j_idk_3g00MFlsCyrb1bbtBU";
   } else if (Platform.isIOS) {
     // iOS-specific code
     API_KEY = "AIzaSyChDykGNnauFgOC3gncrNHrOEaHRzoQ9fc";

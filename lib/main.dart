@@ -38,8 +38,8 @@ class _MyAppState extends State<MyApp> {
   Uri staticMapUri;
 
   List<Marker> _markers = <Marker>[
-    new Marker("1", "Work", 10.8139738,106.6900107, color: Colors.blue),
-    new Marker("2", "Nossa Familia Coffee", 10.8139738,106.6900107),
+    new Marker("1", "Work", 10.810164, 106.694081, color: Colors.blue),
+    new Marker("2", "Nossa Familia Coffee", 10.110164, 106.2),
   ];
 
   @override
@@ -111,19 +111,17 @@ class _MyAppState extends State<MyApp> {
             mapViewType: MapViewType.normal,
             showUserLocation: true,
             initialCameraPosition: new CameraPosition(
-                new Location(10.8139738,106.6900107), 2.0),
+                new Location(10.8139738,106.6900107), 10.0),
             title: "Recently Visited2",
 
         ),
         toolbarActions: [new ToolbarAction("Close", 1)],
-
         );
+
 
     var sub = mapView.onMapReady.listen((_) {
       mapView.setMarkers(_markers);
       mapView.addMarker(new Marker("3", "Hiếu test", 10.8139738,106.6900107,
-          color: Colors.purple));
-      mapView.addMarker(new Marker("4", "Hiếu test 1", 10.810164, 106.694081,
           color: Colors.purple));
       mapView.zoomToFit(padding: 100);
 
@@ -147,7 +145,9 @@ class _MyAppState extends State<MyApp> {
     compositeSubscription.add(sub);
 
     sub = mapView.onToolbarAction.listen((id) {
+      print("HieuLog onToolbarAction 1");
       if (id == 1) {
+        print("HieuLog onToolbarAction 2");
         _handleDismiss();
       }
     });

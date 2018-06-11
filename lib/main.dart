@@ -2,15 +2,24 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:map_view/map_view.dart';
+import 'dart:io' show Platform;
 
 ///This API Key will be used for both the interactive maps as well as the static maps.
 ///Make sure that you have enabled the following APIs in the Google API Console (https://console.developers.google.com/apis)
 /// - Static Maps API
 /// - Android Maps API
 /// - iOS Maps API
-var API_KEY = "AIzaSyAG1JfXQBWacDdscEweGWn74gBLAuUVFyo";
+var API_KEY = "AIzaSyBkQhtYQS-9VamlmU3d8Oyn1jppXYP1oL0";
 
 void main() {
+  if (Platform.isAndroid) {
+    // Android-specific code
+  } else if (Platform.isIOS) {
+    // iOS-specific code
+    API_KEY = "AIzaSyChDykGNnauFgOC3gncrNHrOEaHRzoQ9fc";
+    print("set API iOS Map: " + API_KEY);
+  }
+
   MapView.setApiKey(API_KEY);
   runApp(new MyApp());
 }
@@ -101,7 +110,7 @@ class _MyAppState extends State<MyApp> {
             mapViewType: MapViewType.normal,
             showUserLocation: true,
             initialCameraPosition: new CameraPosition(
-                new Location(10.8139738,106.6900107), 15.0),
+                new Location(10.8139738,106.6900107), 2.0),
             title: "Recently Visited2",
 
         ),
@@ -111,7 +120,9 @@ class _MyAppState extends State<MyApp> {
 
     var sub = mapView.onMapReady.listen((_) {
       mapView.setMarkers(_markers);
-      mapView.addMarker(new Marker("3", "10 Barrel", 10.8139738,106.6900107,
+      mapView.addMarker(new Marker("3", "Hiếu test", 10.8139738,106.6900107,
+          color: Colors.purple));
+      mapView.addMarker(new Marker("4", "Hiếu test 1", 10.810164, 106.694081,
           color: Colors.purple));
       mapView.zoomToFit(padding: 100);
 

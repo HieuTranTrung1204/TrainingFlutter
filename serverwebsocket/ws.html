@@ -4,8 +4,9 @@
 <p>
     open console to see connection.
 </p>
+<div id="textBox"> </div>
 <script>
-    var ws = new WebSocket('ws://localhost:40510');
+    var ws = new WebSocket('ws://192.168.10.106:40510');
 
     ws.onopen = function () {
         console.log('websocket is connected ...')
@@ -14,5 +15,6 @@
 
     ws.onmessage = function (ev) {
         console.log(ev);
+        document.getElementById("textBox").innerHTML = ev.data;
     }
 </script>

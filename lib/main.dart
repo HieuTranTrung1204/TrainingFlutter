@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: title,
       home: new MyHomePage(
         title: title,
-        channel: new IOWebSocketChannel.connect("ws://192.168.1.142:40510"),
+        channel: new IOWebSocketChannel.connect("ws://192.168.10.106:40510"),
       ),
     );
   }

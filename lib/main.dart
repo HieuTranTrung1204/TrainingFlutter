@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
 
+import 'dart:convert';
+
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -43,8 +45,21 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
       setState(() {
-        loadAsset().then((data){
-          print("HieuLog Load text: $data");
+        loadAsset().then((data_json){
+          print("HieuLog Load text: $data_json");
+
+          // Opt 1
+          Map<String, dynamic> data = json.decode(data_json);
+          print('Opt 2: \n Tên:  ${data['name']}');
+          print('Tuổi:  ${data['age']}');
+          
+          // Opt 2
+          Map userMap = json.decode(data_json);
+          var user = new User.fromJson(userMap);
+
+          print('Opt 2: \n Tên:  ${user.name}');
+          print('Tuổi:  ${user.age}');
+
         });
           _name = "Hiếu";
 
@@ -60,4 +75,20 @@ class _MyHomePageState extends State<MyHomePage> {
       )
     );
   }
+}
+class User {
+  final String name;
+  final int age;
+
+  User(this.name, this.age);
+
+  User.fromJson(Map<String, dynamic> json)
+      : name = json['name'],
+        age = json['age'];
+
+  Map<String, dynamic> toJson() =>
+    {
+      'name': name,
+      'email': age,
+    };
 }

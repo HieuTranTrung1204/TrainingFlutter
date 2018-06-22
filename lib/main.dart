@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
           // Opt 1
           Map<String, dynamic> data = json.decode(data_json);
-          print('Opt 2: \n Tên:  ${data['name']}');
+          print('Opt 1: \n Tên:  ${data['name']}');
           print('Tuổi:  ${data['age']}');
           
           // Opt 2

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/animation.dart';
 
 void main() => runApp(new MyApp());
 
@@ -29,7 +30,27 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
+
+  Animation<double> animation;
+  AnimationController controller;
+
+ @override
+ void initState() {
+     // TODO: implement initState
+     super.initState();
+     
+    controller = new AnimationController(
+        duration: const Duration(milliseconds: 2000), vsync: this);
+    animation = new Tween(begin: 0.0, end: 300.0).animate(controller)
+      ..addListener(() {
+        setState(() {
+          // the state that has changed here is the animation object’s value
+        });
+      });
+    controller.forward();
+   }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -38,8 +59,18 @@ class _MyHomePageState extends State<MyHomePage> {
         // title: new Text(widget.title),
       ),
       body: new Center(
-        child: new Text("Đây là body"),
+        child: new Container(
+          margin: new EdgeInsets.symmetric(vertical: 10.0),
+          height: animation.value,
+          width: animation.value,
+          child: new FlutterLogo(),
+      ),
       )
     );
+  }
+  
+  dispose() {
+    controller.dispose();
+    super.dispose();
   }
 }

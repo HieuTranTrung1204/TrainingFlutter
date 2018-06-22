@@ -63,4 +63,5 @@ I/flutter (14345): Tuổi:  18
 
 Link tham khảo:
 - document: https://flutter.io/json/ 
+- https://flutter.io/json/#is-there-a-gsonjacksonmoshi-equivalent-in-flutter
 - source: https://github.com/HieuTranTrung1204/TrainingFlutter/tree/research/json

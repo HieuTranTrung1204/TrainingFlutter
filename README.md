@@ -1,8 +1,19 @@
-# trainingflutter
+# TrainingFlutter
+Flutter by Google
 
-A new Flutter project.
+Sử dụng gói thư viện QR code
+```
+import 'package:qr_flutter/qr_flutter.dart';
+```
 
-## Getting Started
+Khởi tạo đối tượng với data là chuỗi string
+```
+    new QrImage(
+            data: "M16225176",
+            size: 200.0,
+          ),
+```
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+Cac loai QR code:
+- https://github.com/lukef/qr.flutter
+- http://www.qrcode.com/en/about/version.html

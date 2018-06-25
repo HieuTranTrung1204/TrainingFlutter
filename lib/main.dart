@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:qr_flutter/qr_flutter.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -32,13 +33,20 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+
+
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Đây là title cách 1")
         // title: new Text(widget.title),
       ),
       body: new Center(
-        child: new Text("Đây là body"),
+        child: 
+        // new Text("Đây là body"),
+                new QrImage(
+            data: "M16225176",
+            size: 200.0,
+          ),
       )
     );
   }

@@ -154,9 +154,12 @@ class CardBranch extends StatelessWidget{
                       flex: 8,
                     ),
                     new Expanded(
-                      child: new ListTile(
-                        title: new Text(lstBranch[index].name),
-                        subtitle: new Text(lstBranch[index].address),
+                      child: new Container(
+                        margin: new EdgeInsets.only(bottom: 5.0),
+                        child: new ListTile(
+                          title: new Text(lstBranch[index].name),
+                          subtitle: new Text(lstBranch[index].address),
+                        ),
                       ),
                       flex: 3,
                     )

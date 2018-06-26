@@ -1,8 +1,14 @@
-# trainingflutter
+# Trainingflutter
 
 A new Flutter project.
 
-## Getting Started
+## Sử dụng httpClient download ảnh và lưu về bộ nhớ máy (Android hỗ trợ thêm thẻ nhớ: sdcard)
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+- storage: Android + iOS
+    ```aidl
+          String dir = (await getApplicationDocumentsDirectory()).path;
+    ```
+- sdcard: only Android
+    ```aidl
+          String dir = (await getExternalStorageDirectory()).path + "/Android/Data/com.example.trainingflutter/files";
+    ```

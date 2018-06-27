@@ -1,4 +1,4 @@
-package com.example.trainingflutter;
+package com.example.sourcedemo;
 
 import android.os.Bundle;
 

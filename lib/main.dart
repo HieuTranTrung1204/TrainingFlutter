@@ -8,23 +8,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Flutter Demo',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: new MyHomePage(),
-      // Đây là cách set title cách 2
-      //home: new MyHomePage(title: 'Đây là title cách 2'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
-
-  //Set title cách 2
-  //MyHomePage({Key key, this.title}) : super(key: key);
-  //final String title;
-
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
@@ -34,12 +23,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Đây là title cách 1")
-        // title: new Text(widget.title),
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: new Text("Hello world",),
       ),
-      body: new Center(
-        child: new Text("Đây là body"),
-      )
+      body: new Text("Body",style: new TextStyle(fontSize: 30.0),) // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

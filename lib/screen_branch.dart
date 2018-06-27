@@ -10,7 +10,7 @@ class ScreenBranch extends StatelessWidget {
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
       ),
       home: new MyHomePage(),
       // Đây là cách set title cách 2
@@ -64,6 +64,81 @@ class _MyHomePageState extends State<MyHomePage> {
     City _city = lstCity[index];
     return new Column(
       children: <Widget>[
+        index==0 ?
+        new Container(
+          margin: new EdgeInsets.only(top:5.0,bottom: 5.0) ,
+          child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              new Text("  Gần bạn",style: new TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),),
+              new Container(
+                height: 300.0,
+                margin : new EdgeInsets.only(bottom: 20.0,left: 3.0,right: 3.0,top : 10.0),
+                width: MediaQuery.of(context).size.width,
+                child: new Card(
+                  child: new InkWell(
+                    child: new Column(
+                      children: <Widget>[
+                        new Expanded(
+                          child : new Stack(
+                            alignment: Alignment.bottomLeft,
+                            children: <Widget>[
+                              new Container(
+                                height: 250.0,
+                                decoration: const BoxDecoration(
+                                  image: const DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: const AssetImage("assets/images/background_1.jpg"),
+                                  ),
+                                ),
+                              ),
+                              new Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  new Container(
+                                    margin: new EdgeInsets.only(bottom: 10.0,left: 10.0),
+                                    child: new Row(
+                                      children: <Widget>[
+                                        new Icon(Icons.phone,size: 15.0,color: Colors.white,),
+                                        new Text("   0934045794",style: new TextStyle(color: Colors.white,fontSize: 12.0),)
+                                      ],
+                                    ),
+                                  ),
+                                  new Container(
+                                    margin: new EdgeInsets.only(bottom: 10.0,right: 10.0),
+                                    child: new Row(
+                                      children: <Widget>[
+                                        new Icon(Icons.map,size: 15.0,color: Colors.white,),
+                                        new Text("   Chỉ đường",style: new TextStyle(color: Colors.white,fontSize: 12.0),)
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                          flex: 8,
+                        ),
+                        new ListTile(
+                          title: new Text("GongCha Nguyễn Văn Đậu",style: new TextStyle(fontWeight: FontWeight.bold),),
+                          subtitle: new Text("113-114 Nguyễn Văn Đậu, P.9, Q.Phú Nhuận, HCM"),
+                        ),
+                      ],
+                    ),
+                    onTap: null,
+                  ),
+                ),
+              ),
+              new Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  new Text(_city.city, style: new TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold),),
+                  new Text("Tất cả", style: new TextStyle(fontSize: 15.0,color: Colors.red,fontWeight: FontWeight.bold),)
+                ],
+              ),
+            ],
+          )
+        ):
         new Container(
           margin: new EdgeInsets.only(top:5.0,bottom: 5.0, left: 10.0,right: 10.0) ,
           child: new Row(
@@ -96,10 +171,16 @@ class _MyHomePageState extends State<MyHomePage> {
     return new WillPopScope(
         onWillPop: _onWillPop,
         child: new Scaffold(
-
-            body: new ListView.builder(
-                itemCount: countCity,
-                itemBuilder: _builder
+            appBar: new AppBar(
+              title: new Text("TazaSpa"),
+            ),
+            body: new Container(
+              child: new Card(
+                child: new ListView.builder(
+                    itemCount: countCity,
+                    itemBuilder: _builder
+                ),
+              ),
             )
         )
     );
@@ -129,7 +210,7 @@ class CardBranch extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new Container(
-      height: 200.0,
+      height: 250.0,
       child: new ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: lstBranch.length,
@@ -144,6 +225,7 @@ class CardBranch extends StatelessWidget{
                   children: <Widget>[
                     new Expanded(
                       child : new Container(
+                        height: 150.0,
                         decoration: const BoxDecoration(
                           image: const DecorationImage(
                             fit: BoxFit.fill,
@@ -153,16 +235,10 @@ class CardBranch extends StatelessWidget{
                       ),
                       flex: 8,
                     ),
-                    new Expanded(
-                      child: new Container(
-                        margin: new EdgeInsets.only(bottom: 5.0),
-                        child: new ListTile(
-                          title: new Text(lstBranch[index].name),
-                          subtitle: new Text(lstBranch[index].address),
-                        ),
-                      ),
-                      flex: 3,
-                    )
+                    new ListTile(
+                      title: new Text(lstBranch[index].name),
+                      subtitle: new Text(lstBranch[index].address.length > 34 ? lstBranch[index].address.substring(0,34)+"...":lstBranch[index].address),
+                    ),
                   ],
                 ),
                 onTap: ()=>_onTap(context,index),

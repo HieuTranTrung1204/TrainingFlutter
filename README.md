@@ -25,4 +25,4 @@ void main() {
 }
 ```
 
-![alt text](https://github.com/trunghieuvn/TrainingFlutter/flutter-master-helloworld.png "hello flutter")
+![alt text](https://github.com/trunghieuvn/TrainingFlutter/blob/master/flutter-master-helloworld.png "hello flutter")

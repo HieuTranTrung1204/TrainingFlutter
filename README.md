@@ -1,28 +1,16 @@
-# TrainingFlutter
+# basic_app
 
-Flutter by Google
+A new Flutter project.
 
-## Set permission for script file: 
-```
-chmod +x ./run.sh 
-```
+## Getting Started
 
-## DEMO helloworld 
+This project is a starting point for a Flutter application.
 
-```
-import 'package:flutter/material.dart';
+A few resources to get you started if this is your first Flutter project:
 
-void main() {
-  runApp(Container(
-    color: Colors.amber,
-    child: Center(
-      child: Text(
-      "HELLO WORLD", 
-      textDirection: TextDirection.ltr,
-      style: TextStyle(color: Colors.white, fontSize: 30),),
-    )
-  ));
-}
-```
+- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
 
-![alt text](https://github.com/trunghieuvn/TrainingFlutter/blob/master/flutter-master-helloworld.png "hello flutter")
+For help getting started with Flutter, view our 
+[online documentation](https://flutter.io/docs), which offers tutorials, 
+samples, guidance on mobile development, and a full API reference.
